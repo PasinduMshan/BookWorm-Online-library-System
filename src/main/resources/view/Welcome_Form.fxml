@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.WelcomeFormController">
+   <children>
+      <ImageView fitHeight="804.0" fitWidth="1065.0" layoutX="-65.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/welcome-image.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="41.0" layoutY="128.0" prefWidth="473.0" text="Welcome to" textFill="#70e2ff">
+         <font>
+            <Font name="MathJax_Math-BoldItalic" size="72.0" />
+         </font>
+      </Label>
+      <Label layoutX="231.0" layoutY="234.0" text="The BookWarm " textFill="YELLOW">
+         <font>
+            <Font name="MathJax_Math-BoldItalic" size="77.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="progressBar" layoutX="167.0" layoutY="642.0" prefHeight="20.0" prefWidth="686.0" progress="0.0" />
+   </children>
+</AnchorPane>
