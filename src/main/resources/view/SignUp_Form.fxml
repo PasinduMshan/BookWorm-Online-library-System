@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpFormController">
+    <children>
+        <Pane prefHeight="700.0" prefWidth="614.0">
+            <children>
+                <ImageView fitHeight="713.0" fitWidth="1048.0" layoutX="-432.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/pastel-blue-vignette-concrete-textured-background.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="450.0" fitWidth="404.0" layoutX="259.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Untitled_design__4_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="58.0" layoutY="63.0" text="The BookWarm">
+                    <font>
+                        <Font name="Times New Roman Bold" size="72.0" />
+                    </font>
+                </Label>
+                <Label layoutX="77.0" layoutY="190.0" text="Digital Library Management System">
+                    <font>
+                        <Font name="MathJax_Math-BoldItalic" size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="614.0" prefHeight="700.0" prefWidth="588.0" style="-fx-background-color: ffffff;">
+            <children>
+                <Label layoutX="215.0" layoutY="60.0" text="Sign Up">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="txtName" layoutX="96.0" layoutY="172.0" prefHeight="24.0" prefWidth="381.0" promptText="Name" />
+                <JFXTextField fx:id="txtEmail" layoutX="96.0" layoutY="248.0" prefHeight="24.0" prefWidth="381.0" promptText="Email Address" />
+                <JFXButton buttonType="RAISED" layoutX="242.0" layoutY="555.0" onAction="#btnSignUpOnAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-radius: 15; -fx-background-color: #7cc1cf;" text="SignUp">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+            <JFXTextField fx:id="txtUserName" layoutX="96.0" layoutY="317.0" prefHeight="24.0" prefWidth="381.0" promptText="UserName" />
+            <JFXPasswordField fx:id="txtPassword" layoutX="96.0" layoutY="384.0" prefHeight="24.0" prefWidth="381.0" promptText="Password" />
+            <JFXPasswordField fx:id="txtConfirmPassword" layoutX="96.0" layoutY="454.0" prefHeight="24.0" prefWidth="381.0" promptText="Confirm Password" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
