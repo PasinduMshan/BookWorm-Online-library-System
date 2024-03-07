@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+   <children>
+      <Pane prefHeight="700.0" prefWidth="614.0">
+         <children>
+            <ImageView fitHeight="713.0" fitWidth="1048.0" layoutX="-432.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pastel-blue-vignette-concrete-textured-background.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="450.0" fitWidth="404.0" layoutX="259.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Untitled_design__4_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="58.0" layoutY="63.0" text="The BookWarm">
+               <font>
+                  <Font name="Times New Roman Bold" size="72.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="190.0" text="Digital Library Management System">
+               <font>
+                  <Font name="MathJax_Math-BoldItalic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="614.0" prefHeight="700.0" prefWidth="588.0" style="-fx-background-color: ffffff;">
+         <children>
+            <Label layoutX="223.0" layoutY="62.0" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUserName" layoutX="160.0" layoutY="173.0" prefHeight="24.0" prefWidth="267.0" promptText="User Name" />
+            <JFXTextField fx:id="txtPassword" layoutX="160.0" layoutY="249.0" prefHeight="24.0" prefWidth="267.0" promptText="Password" />
+            <JFXButton buttonType="RAISED" layoutX="242.0" layoutY="372.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-radius: 15; -fx-background-color: #7cc1cf;" text="Login">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Line endX="409.0" layoutX="139.0" layoutY="515.0" startX="-100.0" />
+            <Label layoutX="150.0" layoutY="544.0" text="Don't have an account?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="344.0" layoutY="544.0" onMouseClicked="#btnSignUpOnAction" text="Click here..." textFill="#4b63c9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="27.0" fitWidth="39.0" layoutX="438.0" layoutY="248.0" onMouseClicked="#btnViewPasswordOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/closed-eye.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
