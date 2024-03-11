@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="moveNode" prefHeight="783.0" prefWidth="1169.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BranchesFormController">
+    <children>
+        <Label layoutX="33.0" layoutY="28.0" text="Branches">
+            <font>
+                <Font name="System Bold" size="34.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtBranchID" layoutX="33.0" layoutY="140.0" prefHeight="35.0" prefWidth="312.0" promptText="Branch ID" />
+        <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="245.0" prefHeight="35.0" prefWidth="312.0" promptText="Name " />
+        <TableView fx:id="tblBranches" layoutX="714.0" layoutY="37.0" prefHeight="712.0" prefWidth="377.0" style="-fx-background-color: #f4ffff;">
+            <columns>
+                <TableColumn fx:id="colID" prefWidth="129.0" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="247.0" text="Name" />
+            </columns>
+        </TableView>
+        <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="451.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="211.0" layoutY="451.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #ff7777; -fx-background-radius: 15;" text="Delete">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="368.0" layoutY="451.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Update">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="534.0" layoutY="451.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Search">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+    </children>
+</AnchorPane>
