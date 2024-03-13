@@ -44,7 +44,7 @@ public class LoginFormController {
                 boolean isLoginSuccess = loginBO.checkCredentials(userName, password);
 
                 if (isLoginSuccess) {
-                    new Alert(Alert.AlertType.INFORMATION, "Login Successful !!!\n\nWelcome, "+userName).showAndWait();
+                    new Alert(Alert.AlertType.INFORMATION, "Login Successful!!!\n\nWelcome, "+userName).showAndWait();
 
                     AdminConnection.getInstance().setUserName(userName);
                     AdminConnection.getInstance().setPassword(password);
