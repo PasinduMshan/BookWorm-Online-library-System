@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class LoginBOImpl implements LoginBO {
 
-    AdminDAO adminDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
+    AdminDAO adminDAO = (AdminDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
 
     @Override
     public boolean checkCredentials(String userName, String password) throws SQLException {

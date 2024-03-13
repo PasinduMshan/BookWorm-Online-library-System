@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAOImpl implements AdminDAO {
@@ -68,7 +69,27 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
-    public boolean checkCredentialsByPassword(String name, String password) {
+    public boolean delete(String id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(Admin entity) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public Admin search(String Id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Admin> getAll() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean checkCredentialsByPassword(String name, String password) throws SQLException{
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

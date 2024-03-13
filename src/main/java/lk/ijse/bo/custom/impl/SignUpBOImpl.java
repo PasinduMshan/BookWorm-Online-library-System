@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class SignUpBOImpl implements SignUpBO {
 
-    AdminDAO adminDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
+    AdminDAO adminDAO = (AdminDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
 
     @Override
     public String generateNextUserId() throws SQLException {

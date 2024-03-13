@@ -1,6 +1,7 @@
 package lk.ijse.bo;
 
 import lk.ijse.bo.custom.impl.LoginBOImpl;
+import lk.ijse.bo.custom.impl.MemberBOImpl;
 import lk.ijse.bo.custom.impl.SignUpBOImpl;
 
 public class BOFactory {
@@ -14,7 +15,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        SIGNUP, LOGIN
+        SIGNUP, LOGIN, MEMBER
     }
 
     public SuperBO getBO(BOTypes boTypes) {
@@ -23,6 +24,8 @@ public class BOFactory {
                 return new SignUpBOImpl();
             case LOGIN:
                 return new LoginBOImpl();
+            case MEMBER:
+                return new MemberBOImpl();
             default:
                 return null;
         }
