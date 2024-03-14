@@ -53,6 +53,9 @@ public class LoginFormController {
                     Scene scene = new Scene(rootNode);
                     Stage stage = (Stage) this.rootNode.getScene().getWindow();
                     stage.setScene(scene);
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Login Failed!!!\n\nPlease Check Credentials..").showAndWait();
+
                 }
             }
         } catch (SQLException e) {

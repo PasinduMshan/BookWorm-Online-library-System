@@ -73,7 +73,7 @@ public class MemberFormController implements Initializable {
         String contact = txtContact.getText();
         String date = String.valueOf(dpDateOfBirth.getValue());
 
-        boolean isValidate = validateAdminDetails(name, address, email, contact);
+        boolean isValidate = validateDetails(name, address, email, contact);
 
         if (isValidate) {
             MemberDto dto = new MemberDto(memberID, name, address, email, contact, date);
@@ -88,7 +88,6 @@ public class MemberFormController implements Initializable {
                 } else {
                     new Alert(Alert.AlertType.ERROR,"Save Failed!!!").showAndWait();
                 }
-
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -111,8 +110,6 @@ public class MemberFormController implements Initializable {
             } else  {
                 new Alert(Alert.AlertType.ERROR,"Delete Failed!!!").showAndWait();
             }
-
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -150,7 +147,7 @@ public class MemberFormController implements Initializable {
         String contact = txtContact.getText();
         String date = String.valueOf(dpDateOfBirth.getValue());
 
-        boolean isValidate = validateAdminDetails(name, address, email, contact);
+        boolean isValidate = validateDetails(name, address, email, contact);
 
         if (isValidate) {
             MemberDto dto = new MemberDto(memberID, name, address, email, contact, date);
@@ -243,7 +240,7 @@ public class MemberFormController implements Initializable {
         }
     }
 
-    private boolean validateAdminDetails(String name, String address, String email, String contact) {
+    private boolean validateDetails(String name, String address, String email, String contact) {
         boolean matches = Pattern.matches("[A-Za-z.]+", name);
         if (!matches) {
             new Alert(Alert.AlertType.ERROR,"Invalid Name!!").show();

@@ -1,6 +1,5 @@
 package lk.ijse.dao.custom.impl;
 
-import lk.ijse.bo.custom.MemberBO;
 import lk.ijse.config.FactoryConfiguration;
 import lk.ijse.dao.custom.MemberDAO;
 import lk.ijse.entity.Member;
