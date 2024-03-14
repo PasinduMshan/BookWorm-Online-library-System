@@ -1,7 +1,8 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Admin {
@@ -12,6 +13,9 @@ public class Admin {
     private String userName;
     private String password;
 
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+    private List<Branch> branchList;
+
     public Admin() {
     }
 
@@ -21,6 +25,15 @@ public class Admin {
         Email = email;
         this.userName = userName;
         this.password = password;
+    }
+
+    public Admin(String adminId, String name, String email, String userName, String password, List<Branch> branchList) {
+        this.adminId = adminId;
+        Name = name;
+        Email = email;
+        this.userName = userName;
+        this.password = password;
+        this.branchList = branchList;
     }
 
     public String getAdminId() {
@@ -61,5 +74,13 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Branch> getBranchList() {
+        return branchList;
+    }
+
+    public void setBranchList(List<Branch> branchList) {
+        this.branchList = branchList;
     }
 }

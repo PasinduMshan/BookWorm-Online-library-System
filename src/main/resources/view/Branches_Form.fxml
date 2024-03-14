@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -18,13 +20,13 @@
         </Label>
         <JFXTextField fx:id="txtBranchID" layoutX="33.0" layoutY="140.0" prefHeight="35.0" prefWidth="312.0" promptText="Branch ID" />
         <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="245.0" prefHeight="35.0" prefWidth="312.0" promptText="Name " />
-        <TableView fx:id="tblBranches" layoutX="714.0" layoutY="37.0" prefHeight="712.0" prefWidth="377.0" style="-fx-background-color: #f4ffff;">
+        <TableView fx:id="tblBranches" layoutX="723.0" layoutY="37.0" prefHeight="712.0" prefWidth="377.0" style="-fx-background-color: #f4ffff;">
             <columns>
                 <TableColumn fx:id="colID" prefWidth="129.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="247.0" text="Name" />
             </columns>
         </TableView>
-        <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="451.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
+        <JFXButton buttonType="RAISED" layoutX="53.0" layoutY="353.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -32,7 +34,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="211.0" layoutY="451.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #ff7777; -fx-background-radius: 15;" text="Delete">
+        <JFXButton buttonType="RAISED" layoutX="213.0" layoutY="353.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #ff7777; -fx-background-radius: 15;" text="Delete">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -40,7 +42,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="368.0" layoutY="451.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Update">
+        <JFXButton buttonType="RAISED" layoutX="370.0" layoutY="353.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Update">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -48,7 +50,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="534.0" layoutY="451.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Search">
+        <JFXButton buttonType="RAISED" layoutX="536.0" layoutY="353.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Search">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -56,5 +58,11 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="530.0" layoutY="37.0" onAction="#btnRefreshOnAction" style="-fx-background-color: #f0f1ff; -fx-background-radius: 20;" text="Refresh Fields" />
+      <ImageView fitHeight="371.0" fitWidth="369.0" layoutX="140.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/branch.jpg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

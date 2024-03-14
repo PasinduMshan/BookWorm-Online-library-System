@@ -7,4 +7,6 @@ import java.sql.SQLException;
 
 public interface AdminDAO extends CrudDAO<Admin> {
     boolean checkCredentialsByPassword(String name, String password) throws SQLException;
+
+    Admin getID(String name, String password) throws SQLException;
 }

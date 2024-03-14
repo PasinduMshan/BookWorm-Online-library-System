@@ -115,4 +115,26 @@ public class AdminDAOImpl implements AdminDAO {
         }
         return false;
     }
+
+    @Override
+    public Admin getID(String name, String password) throws SQLException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Admin WHERE userName = ?1 AND password = ?2");
+        query.setParameter(1, name);
+        query.setParameter(2, password);
+        List<Admin> list = query.list();
+
+        Admin admin = null;
+
+        for (Admin admin1 : list) {
+            admin = new Admin(admin1.getAdminId(), admin1.getName(), admin1.getEmail(), admin1.getUserName(), admin1.getPassword());
+        }
+
+        transaction.commit();
+        session.close();
+
+        return admin;
+    }
 }

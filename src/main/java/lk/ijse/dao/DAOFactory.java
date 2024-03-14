@@ -1,6 +1,7 @@
 package lk.ijse.dao;
 
 import lk.ijse.dao.custom.impl.AdminDAOImpl;
+import lk.ijse.dao.custom.impl.BranchDAOImpl;
 import lk.ijse.dao.custom.impl.MemberDAOImpl;
 
 public class DAOFactory {
@@ -14,7 +15,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        ADMIN, MEMBER
+        ADMIN, MEMBER, BRANCH
     }
 
     public SuperDAO getDAO(DAOTypes daoTypes) {
@@ -23,6 +24,8 @@ public class DAOFactory {
                 return new AdminDAOImpl();
             case MEMBER:
                 return new MemberDAOImpl();
+            case BRANCH:
+                return new BranchDAOImpl();
             default:
                 return null;
         }
