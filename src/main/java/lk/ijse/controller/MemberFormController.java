@@ -241,7 +241,7 @@ public class MemberFormController implements Initializable {
     }
 
     private boolean validateDetails(String name, String address, String email, String contact) {
-        boolean matches = Pattern.matches("[A-Za-z.]+", name);
+        boolean matches = Pattern.matches("[A-Za-z.\\s]+", name);
         if (!matches) {
             new Alert(Alert.AlertType.ERROR,"Invalid Name!!").show();
             return false;

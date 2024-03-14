@@ -59,7 +59,7 @@
             </cursor>
         </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="530.0" layoutY="37.0" onAction="#btnRefreshOnAction" style="-fx-background-color: #f0f1ff; -fx-background-radius: 20;" text="Refresh Fields" />
-      <ImageView fitHeight="371.0" fitWidth="369.0" layoutX="140.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="387.0" fitWidth="369.0" layoutX="140.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/branch.jpg" />
          </image>

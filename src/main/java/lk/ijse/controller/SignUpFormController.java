@@ -92,7 +92,7 @@ public class SignUpFormController {
     }
 
     private boolean validateAdminDetails(String name, String email, String userName, String password, String confirmPassword) {
-        boolean matches = Pattern.matches("[A-Za-z.]+", name);
+        boolean matches = Pattern.matches("[A-Za-z.\\s]+", name);
         if (!matches) {
             new Alert(Alert.AlertType.ERROR,"Invalid Name!!").show();
             return false;

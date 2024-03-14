@@ -19,12 +19,12 @@ public class MemberDAOImpl implements MemberDAO {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("select memberId from Member order by memberId desc limit 1");
-        String ad_Id = (String) query.uniqueResult();
+        String id = (String) query.uniqueResult();
 
         transaction.commit();
         session.close();
 
-        return splitId(ad_Id);
+        return splitId(id);
     }
 
     @Override

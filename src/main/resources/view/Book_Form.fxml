@@ -17,11 +17,11 @@
                 <Font name="System Bold" size="34.0" />
             </font>
         </Label>
-        <JFXTextField fx:id="txtBookID" layoutX="33.0" layoutY="116.0" prefHeight="35.0" prefWidth="312.0" promptText="Book ID" />
-        <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="180.0" prefHeight="35.0" prefWidth="312.0" promptText="Title" />
-        <JFXTextField fx:id="txtCountry" layoutX="33.0" layoutY="312.0" prefHeight="35.0" prefWidth="312.0" promptText="Country" />
-        <JFXTextField fx:id="txtQty" layoutX="33.0" layoutY="379.0" prefHeight="35.0" prefWidth="312.0" promptText="Quantity" />
-        <TableView fx:id="tblBook" layoutX="389.0" layoutY="34.0" prefHeight="732.0" prefWidth="762.0" style="-fx-background-color: #f4ffff;">
+        <JFXTextField fx:id="txtBookID" layoutX="33.0" layoutY="123.0" prefHeight="35.0" prefWidth="312.0" promptText="Book ID" />
+        <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="199.0" prefHeight="35.0" prefWidth="312.0" promptText="Title" />
+        <JFXTextField fx:id="txtCountry" layoutX="33.0" layoutY="355.0" prefHeight="35.0" prefWidth="312.0" promptText="Country" />
+        <JFXTextField fx:id="txtQty" layoutX="33.0" layoutY="432.0" prefHeight="35.0" prefWidth="312.0" promptText="Quantity" />
+        <TableView fx:id="tblBook" layoutX="389.0" layoutY="34.0" prefHeight="651.0" prefWidth="762.0" style="-fx-background-color: #f4ffff;">
             <columns>
                 <TableColumn fx:id="colID" prefWidth="90.0" text="ID" />
                 <TableColumn fx:id="colTitle" prefWidth="168.0" text="Title" />
@@ -31,7 +31,7 @@
             <TableColumn fx:id="colQty" prefWidth="63.0" text="Qty" />
             </columns>
         </TableView>
-        <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="605.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
+        <JFXButton buttonType="RAISED" layoutX="467.0" layoutY="709.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -39,7 +39,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="231.0" layoutY="605.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #ff7777; -fx-background-radius: 15;" text="Delete">
+        <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="709.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #ff7777; -fx-background-radius: 15;" text="Delete">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -47,7 +47,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="680.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Update">
+        <JFXButton buttonType="RAISED" layoutX="802.0" layoutY="709.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Update">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -55,7 +55,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="231.0" layoutY="680.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Search">
+        <JFXButton buttonType="RAISED" layoutX="972.0" layoutY="709.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Search">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -63,8 +63,10 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-      <JFXTextField fx:id="txtAuthor" layoutX="33.0" layoutY="246.0" prefHeight="35.0" prefWidth="312.0" promptText="Author" />
-      <JFXComboBox fx:id="cmbAvailability" layoutX="33.0" layoutY="444.0" prefHeight="35.0" prefWidth="312.0" promptText="Availability Status" />
-      <JFXComboBox fx:id="cmbGenre" layoutX="33.0" layoutY="506.0" prefHeight="35.0" prefWidth="312.0" promptText="Genres" />
+      <JFXTextField fx:id="txtAuthor" layoutX="33.0" layoutY="275.0" prefHeight="35.0" prefWidth="312.0" promptText="Author" />
+      <JFXComboBox fx:id="cmbAvailability" layoutX="33.0" layoutY="506.0" prefHeight="35.0" prefWidth="312.0" promptText="Availability Status" />
+      <JFXComboBox fx:id="cmbGenre" layoutX="33.0" layoutY="579.0" prefHeight="35.0" prefWidth="312.0" promptText="Genres" />
+      <JFXComboBox fx:id="cmbBranchId" layoutX="33.0" layoutY="650.0" prefHeight="35.0" prefWidth="312.0" promptText="BranchId" />
+      <JFXButton buttonType="RAISED" layoutX="33.0" layoutY="725.0" onAction="#btnRefreshOnAction" style="-fx-background-color: #f0f1ff; -fx-background-radius: 20;" text="Refresh Fields" />
     </children>
 </AnchorPane>

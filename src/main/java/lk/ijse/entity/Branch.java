@@ -2,6 +2,8 @@ package lk.ijse.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Branch {
     @Id
@@ -11,6 +13,9 @@ public class Branch {
     @ManyToOne
     @JoinColumn(name = "adminId")
     private Admin admin;
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL)
+    private List<Book> bookList;
 
     public Branch() {
     }
@@ -43,5 +48,13 @@ public class Branch {
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 }

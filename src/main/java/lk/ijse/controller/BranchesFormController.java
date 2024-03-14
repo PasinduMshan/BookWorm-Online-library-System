@@ -71,7 +71,7 @@ public class BranchesFormController implements Initializable {
     }
 
     private boolean validateDetails(String name) {
-        boolean matches = Pattern.matches("[A-Za-z0-9.]+", name);
+        boolean matches = Pattern.matches("[A-Za-z0-9.\\s]+", name);
         if (!matches) {
             new Alert(Alert.AlertType.ERROR,"Invalid Name!!").show();
             return false;

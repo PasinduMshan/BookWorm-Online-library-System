@@ -18,12 +18,12 @@ public class BranchDAOImpl implements BranchDAO {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("SELECT BranchId from Branch order by BranchId desc limit 1");
-        String ad_Id = (String) query.uniqueResult();
+        String id = (String) query.uniqueResult();
 
         transaction.commit();
         session.close();
 
-        return splitId(ad_Id);
+        return splitId(id);
     }
 
     @Override
