@@ -19,8 +19,10 @@ public class DashBordFormController {
     private AnchorPane rootNode;
 
     @FXML
-    void btnAdminOnAction(ActionEvent event) {
-
+    void btnAdminOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/Admin_Form.fxml"));
+        this.moveNode.getChildren().clear();
+        this.moveNode.getChildren().add(rootNode);
     }
 
     @FXML
