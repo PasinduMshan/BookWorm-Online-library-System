@@ -52,17 +52,23 @@ public class BranchDAOImpl implements BranchDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("INSERT INTO Branch (BranchId, Name, admin) SELECT :BranchId, :Name, :admin");
-        query.setParameter("BranchId", entity.getBranchId());
-        query.setParameter("Name", entity.getName());
-        query.setParameter("admin", entity.getAdmin());
+        try {
+            Query query = session.createQuery("INSERT INTO Branch (BranchId, Name, admin) SELECT :BranchId, :Name, :admin");
+            query.setParameter("BranchId", entity.getBranchId());
+            query.setParameter("Name", entity.getName());
+            query.setParameter("admin", entity.getAdmin());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -70,14 +76,20 @@ public class BranchDAOImpl implements BranchDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM Branch WHERE BranchId = ?1");
-        query.setParameter(1, id);
-        int i = query.executeUpdate();
+        try {
+            Query query = session.createQuery("DELETE FROM Branch WHERE BranchId = ?1");
+            query.setParameter(1, id);
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -85,17 +97,23 @@ public class BranchDAOImpl implements BranchDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("UPDATE Branch SET Name = ?1, admin = ?2 WHERE BranchId = ?3");
-        query.setParameter(1, entity.getName());
-        query.setParameter(2, entity.getAdmin());
-        query.setParameter(3, entity.getBranchId());
+        try {
+            Query query = session.createQuery("UPDATE Branch SET Name = ?1, admin = ?2 WHERE BranchId = ?3");
+            query.setParameter(1, entity.getName());
+            query.setParameter(2, entity.getAdmin());
+            query.setParameter(3, entity.getBranchId());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override

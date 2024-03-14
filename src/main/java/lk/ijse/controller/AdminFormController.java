@@ -75,11 +75,12 @@ public class AdminFormController implements Initializable {
                 if (isSaved) {
                     new Alert(Alert.AlertType.INFORMATION,"Admin Save Success!!!").showAndWait();
                     clearField();
+                    loadAllAdmin();
                 } else {
                     new Alert(Alert.AlertType.ERROR,"Save Failed!!!").showAndWait();
                 }
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).showAndWait();
             }
         }
 
@@ -124,6 +125,7 @@ public class AdminFormController implements Initializable {
             if (isDeleted) {
                 new Alert(Alert.AlertType.INFORMATION,"Delete Success!!!").showAndWait();
                 clearField();
+                loadAllAdmin();
             } else  {
                 new Alert(Alert.AlertType.ERROR,"Delete Failed!!!").showAndWait();
             }
@@ -179,6 +181,7 @@ public class AdminFormController implements Initializable {
                 if (isUpdated) {
                     new Alert(Alert.AlertType.INFORMATION,"Update Success!!!").showAndWait();
                     clearField();
+                    loadAllAdmin();
                 } else {
                     new Alert(Alert.AlertType.ERROR,"Update Failed!!!").showAndWait();
                 }
@@ -254,6 +257,7 @@ public class AdminFormController implements Initializable {
         txtEmail.clear();
         txtUserName.clear();
         txtPassword.clear();
+        generateNextUserId();
     }
 
 }

@@ -52,23 +52,29 @@ public class BookDAOImpl implements BookDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("INSERT INTO Book (BookId, Title, Author, Country, Quantity, AvailableStatus, " +
-                "Genre, branch) SELECT :BookId, :Title, :Author, :Country, :Quantity, :AvailableStatus, :Genre, :branch");
-        query.setParameter("BookId", entity.getBookId());
-        query.setParameter("Title", entity.getTitle());
-        query.setParameter("Author", entity.getAuthor());
-        query.setParameter("Country", entity.getCountry());
-        query.setParameter("Quantity", entity.getQuantity());
-        query.setParameter("AvailableStatus", entity.getAvailableStatus());
-        query.setParameter("Genre", entity.getGenre());
-        query.setParameter("branch", entity.getBranch());
+        try {
+            Query query = session.createQuery("INSERT INTO Book (BookId, Title, Author, Country, Quantity, AvailableStatus, " +
+                    "Genre, branch) SELECT :BookId, :Title, :Author, :Country, :Quantity, :AvailableStatus, :Genre, :branch");
+            query.setParameter("BookId", entity.getBookId());
+            query.setParameter("Title", entity.getTitle());
+            query.setParameter("Author", entity.getAuthor());
+            query.setParameter("Country", entity.getCountry());
+            query.setParameter("Quantity", entity.getQuantity());
+            query.setParameter("AvailableStatus", entity.getAvailableStatus());
+            query.setParameter("Genre", entity.getGenre());
+            query.setParameter("branch", entity.getBranch());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -76,14 +82,20 @@ public class BookDAOImpl implements BookDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM Book WHERE BookId = ?1");
-        query.setParameter(1, id);
-        int i = query.executeUpdate();
+        try {
+            Query query = session.createQuery("DELETE FROM Book WHERE BookId = ?1");
+            query.setParameter(1, id);
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -91,24 +103,30 @@ public class BookDAOImpl implements BookDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("UPDATE Book SET Title = ?1, Author = ?2, Country = ?3, Quantity = ?4, " +
-                "AvailableStatus = ?5, Genre = ?6, branch = ?7 WHERE BookId = ?8");
+        try {
+            Query query = session.createQuery("UPDATE Book SET Title = ?1, Author = ?2, Country = ?3, Quantity = ?4, " +
+                    "AvailableStatus = ?5, Genre = ?6, branch = ?7 WHERE BookId = ?8");
 
-        query.setParameter(1, entity.getTitle());
-        query.setParameter(2, entity.getAuthor());
-        query.setParameter(3, entity.getCountry());
-        query.setParameter(4, entity.getQuantity());
-        query.setParameter(5, entity.getAvailableStatus());
-        query.setParameter(6, entity.getGenre());
-        query.setParameter(7, entity.getBranch());
-        query.setParameter(8, entity.getBookId());
+            query.setParameter(1, entity.getTitle());
+            query.setParameter(2, entity.getAuthor());
+            query.setParameter(3, entity.getCountry());
+            query.setParameter(4, entity.getQuantity());
+            query.setParameter(5, entity.getAvailableStatus());
+            query.setParameter(6, entity.getGenre());
+            query.setParameter(7, entity.getBranch());
+            query.setParameter(8, entity.getBookId());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override

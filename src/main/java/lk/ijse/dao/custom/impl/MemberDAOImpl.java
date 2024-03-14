@@ -53,21 +53,27 @@ public class MemberDAOImpl implements MemberDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("INSERT INTO Member (memberId, Name, Address, Email, Contact, D_O_B) " +
-                "SELECT :memberId, :Name, :Address, :Email, :Contact, :D_O_B");
-        query.setParameter("memberId", entity.getMemberId());
-        query.setParameter("Name", entity.getName());
-        query.setParameter("Address", entity.getAddress());
-        query.setParameter("Email", entity.getEmail());
-        query.setParameter("Contact", entity.getContact());
-        query.setParameter("D_O_B", entity.getD_O_B());
+        try {
+            Query query = session.createQuery("INSERT INTO Member (memberId, Name, Address, Email, Contact, D_O_B) " +
+                    "SELECT :memberId, :Name, :Address, :Email, :Contact, :D_O_B");
+            query.setParameter("memberId", entity.getMemberId());
+            query.setParameter("Name", entity.getName());
+            query.setParameter("Address", entity.getAddress());
+            query.setParameter("Email", entity.getEmail());
+            query.setParameter("Contact", entity.getContact());
+            query.setParameter("D_O_B", entity.getD_O_B());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -75,14 +81,20 @@ public class MemberDAOImpl implements MemberDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM Member WHERE memberId = ?1");
-        query.setParameter(1, id);
-        int i = query.executeUpdate();
+        try {
+            Query query = session.createQuery("DELETE FROM Member WHERE memberId = ?1");
+            query.setParameter(1, id);
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -90,21 +102,27 @@ public class MemberDAOImpl implements MemberDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("UPDATE Member SET Name = ?1, Address = ?2, Email = ?3, Contact = ?4, " +
-                "D_O_B = ?5 WHERE memberId = ?6");
-        query.setParameter(1, entity.getName());
-        query.setParameter(2, entity.getAddress());
-        query.setParameter(3, entity.getEmail());
-        query.setParameter(4, entity.getContact());
-        query.setParameter(5, entity.getD_O_B());
-        query.setParameter(6, entity.getMemberId());
+        try {
+            Query query = session.createQuery("UPDATE Member SET Name = ?1, Address = ?2, Email = ?3, Contact = ?4, " +
+                    "D_O_B = ?5 WHERE memberId = ?6");
+            query.setParameter(1, entity.getName());
+            query.setParameter(2, entity.getAddress());
+            query.setParameter(3, entity.getEmail());
+            query.setParameter(4, entity.getContact());
+            query.setParameter(5, entity.getD_O_B());
+            query.setParameter(6, entity.getMemberId());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override

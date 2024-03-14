@@ -53,19 +53,25 @@ public class AdminDAOImpl implements AdminDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("INSERT INTO Admin (adminId, Name, Email, userName, password) SELECT :adminId, :Name, :Email, :userName, :password");
-        query.setParameter("adminId", entity.getAdminId());
-        query.setParameter("Name" , entity.getName());
-        query.setParameter("Email" , entity.getEmail());
-        query.setParameter("userName" , entity.getUserName());
-        query.setParameter("password" , entity.getPassword());
+        try {
+            Query query = session.createQuery("INSERT INTO Admin (adminId, Name, Email, userName, password) SELECT :adminId, :Name, :Email, :userName, :password");
+            query.setParameter("adminId", entity.getAdminId());
+            query.setParameter("Name" , entity.getName());
+            query.setParameter("Email" , entity.getEmail());
+            query.setParameter("userName" , entity.getUserName());
+            query.setParameter("password" , entity.getPassword());
 
-        int i = query.executeUpdate();
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -73,19 +79,47 @@ public class AdminDAOImpl implements AdminDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM Admin WHERE adminId = ?1");
-        query.setParameter(1, id);
-        int i = query.executeUpdate();
+        try {
+            Query query = session.createQuery("DELETE FROM Admin WHERE adminId = ?1");
+            query.setParameter(1, id);
+            int i = query.executeUpdate();
 
-        transaction.commit();
-        session.close();
+            transaction.commit();
 
-        return (i==1 ? true : false);
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public boolean update(Admin entity) throws SQLException {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Query query = session.createQuery("UPDATE Admin SET Name = ?1, Email = ?2, userName = ?3, password = ?4 WHERE adminId = ?5");
+
+            query.setParameter(1, entity.getName());
+            query.setParameter(2, entity.getEmail());
+            query.setParameter(3, entity.getUserName());
+            query.setParameter(4, entity.getPassword());
+            query.setParameter(5, entity.getAdminId());
+
+            int i = query.executeUpdate();
+
+            transaction.commit();
+
+            return i == 1;
+
+        } catch (Exception e) {
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
