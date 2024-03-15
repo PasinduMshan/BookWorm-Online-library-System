@@ -143,6 +143,26 @@ public class DashBordFormController implements Initializable {
         loadAllLateReturns();
         setDateAndTime();
         setUserName();
+        setBooKCount();
+        setMemberCount();
+    }
+
+    private void setMemberCount() {
+        try {
+            String memberCount = dashBoardBO.getMemberCount();
+            lblMemberCount.setText(memberCount);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setBooKCount() {
+        try {
+            String bookCount = dashBoardBO.getBookCount();
+            lblBookCount.setText(bookCount);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setUserName() {

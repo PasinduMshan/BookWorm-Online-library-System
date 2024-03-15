@@ -182,4 +182,20 @@ public class MemberDAOImpl implements MemberDAO {
 
         return mem;
     }
+
+    @Override
+    public String getMemberCount() throws SQLException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT COUNT(memberId) FROM Member");
+        Object cou = query.uniqueResult();
+
+        String count = String.valueOf(cou);
+
+        transaction.commit();
+        session.close();
+
+        return count;
+    }
 }

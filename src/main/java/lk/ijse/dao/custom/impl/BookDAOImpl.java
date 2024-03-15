@@ -172,4 +172,22 @@ public class BookDAOImpl implements BookDAO {
 
         return list;
     }
+
+    @Override
+    public String getBookCount() throws SQLException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT COUNT(BookId) FROM Book");
+        Object o = query.uniqueResult();
+
+        System.out.println(o);
+
+        String count = String.valueOf(o);
+
+        transaction.commit();
+        session.close();
+
+        return count;
+    }
 }

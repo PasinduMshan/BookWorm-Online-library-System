@@ -12,4 +12,7 @@ public interface DashBoardBO extends SuperBO {
 
     String getAdminName(String name, String password) throws SQLException;
 
+    String getBookCount() throws SQLException;
+
+    String getMemberCount() throws SQLException;
 }

@@ -8,4 +8,6 @@ import java.sql.SQLException;
 public interface MemberDAO extends CrudDAO<Member> {
 
     Member searchMember(String contact) throws SQLException;
+
+    String getMemberCount() throws SQLException;
 }
