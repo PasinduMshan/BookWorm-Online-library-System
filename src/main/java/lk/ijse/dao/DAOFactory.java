@@ -13,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        ADMIN, MEMBER, BRANCH, BOOK, BORROW, BORROWDETAIL
+        ADMIN, MEMBER, BRANCH, BOOK, BORROW, BORROWDETAIL, QUERY
     }
 
     public SuperDAO getDAO(DAOTypes daoTypes) {
@@ -30,6 +30,8 @@ public class DAOFactory {
                 return new BorrowDAOImpl();
             case BORROWDETAIL:
                 return new BorrowDetailDAOImpl();
+            case QUERY:
+                return new QueryDAOImpl();
             default:
                 return null;
         }

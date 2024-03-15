@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -68,42 +71,42 @@
             </Pane>
             <AnchorPane fx:id="moveNode" layoutX="321.0" layoutY="9.0" prefHeight="783.0" prefWidth="1169.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
                <children>
-                  <Pane layoutX="191.0" layoutY="104.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #c2d8e3; -fx-background-radius: 20;">
+                  <Pane layoutX="198.0" layoutY="123.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #75d6ff; -fx-background-radius: 20;">
                      <children>
                         <Label layoutX="59.0" layoutY="14.0" text="Books">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label layoutX="60.0" layoutY="65.0" text="150000" textFill="#3056ff">
+                        <Label fx:id="lblBookCount" layoutX="60.0" layoutY="65.0" text="150000" textFill="#3056ff">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="486.0" layoutY="104.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #c2d8e3; -fx-background-radius: 20;">
+                  <Pane layoutX="486.0" layoutY="124.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #75d6ff; -fx-background-radius: 20;">
                      <children>
                         <Label layoutX="37.0" layoutY="14.0" text="Members">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label layoutX="60.0" layoutY="65.0" text="150000" textFill="#3056ff">
+                        <Label fx:id="lblMemberCount" layoutX="60.0" layoutY="65.0" text="150000" textFill="#3056ff">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="779.0" layoutY="104.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #c2d8e3; -fx-background-radius: 20;">
+                  <Pane layoutX="772.0" layoutY="124.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #75d6ff; -fx-background-radius: 20;">
                      <children>
                         <Label layoutX="37.0" layoutY="14.0" text="Branches">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label layoutX="86.0" layoutY="65.0" text="15" textFill="#3056ff">
+                        <Label fx:id="lblBranchCount" layoutX="86.0" layoutY="65.0" text="15" textFill="#3056ff">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
@@ -115,14 +118,51 @@
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label layoutX="979.0" layoutY="19.0" text="Date">
+                  <Label layoutX="909.0" layoutY="18.0" text="Date :">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="979.0" layoutY="53.0" text="Time">
+                  <Label layoutX="909.0" layoutY="52.0" text="Time :">
                      <font>
                         <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblReturnLate" layoutX="442.0" layoutY="283.0" prefHeight="392.0" prefWidth="697.0">
+                    <columns>
+                      <TableColumn fx:id="colMemberId" prefWidth="107.0" text="Member ID" />
+                      <TableColumn fx:id="colMemberName" minWidth="0.0" prefWidth="143.0" text="Member Name" />
+                        <TableColumn fx:id="colBookName" minWidth="0.0" prefWidth="179.0" text="Book Name" />
+                        <TableColumn fx:id="colBorrowDate" minWidth="0.0" prefWidth="133.0" text="Borrow date" />
+                        <TableColumn fx:id="colReturnDate" minWidth="0.0" prefWidth="134.0" text="Return Date" />
+                    </columns>
+                  </TableView>
+                  <JFXButton buttonType="RAISED" layoutX="869.0" layoutY="699.0" onAction="#btnMemberHistoryOnAction" prefHeight="56.0" prefWidth="269.0" style="-fx-background-color: #b2dbff; -fx-background-radius: 5;" text="Member Transaction History">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <ImageView fitHeight="472.0" fitWidth="398.0" layoutX="32.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Untitled%20design%20(9).png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblDate" layoutX="989.0" layoutY="18.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTime" layoutX="989.0" layoutY="52.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblUserName" layoutX="257.0" layoutY="27.0">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
