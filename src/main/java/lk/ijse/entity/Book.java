@@ -1,11 +1,11 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
+@Table(name = "Book")
 public class Book {
     @Id
     private String BookId;
@@ -20,7 +20,14 @@ public class Book {
     @JoinColumn(name = "BranchId")
     private Branch branch;
 
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<BorrowDetails> borrowDetails;
+
     public Book() {
+    }
+
+    public Book(String bookId) {
+        BookId = bookId;
     }
 
     public Book(String bookId, String title, String author, String country, int quantity, String availableStatus, String genre, Branch branch) {
@@ -32,6 +39,18 @@ public class Book {
         AvailableStatus = availableStatus;
         Genre = genre;
         this.branch = branch;
+    }
+
+    public Book(String bookId, String title, String author, String country, int quantity, String availableStatus, String genre, Branch branch, List<BorrowDetails> borrowDetails) {
+        BookId = bookId;
+        Title = title;
+        Author = author;
+        Country = country;
+        Quantity = quantity;
+        AvailableStatus = availableStatus;
+        Genre = genre;
+        this.branch = branch;
+        this.borrowDetails = borrowDetails;
     }
 
     public String getBookId() {

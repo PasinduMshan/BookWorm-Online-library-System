@@ -1,7 +1,11 @@
 package lk.ijse.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Member {
@@ -14,7 +18,14 @@ public class Member {
     private String Contact;
     private String D_O_B;
 
+    @OneToMany(mappedBy = "members", cascade = CascadeType.ALL)
+    private List<Borrow> borrowList;
+
     public Member() {
+    }
+
+    public Member(String memberId) {
+        this.memberId = memberId;
     }
 
     public Member(String memberId, String name, String address, String email, String contact, String d_O_B) {
@@ -24,6 +35,16 @@ public class Member {
         Email = email;
         Contact = contact;
         D_O_B = d_O_B;
+    }
+
+    public Member(String memberId, String name, String address, String email, String contact, String d_O_B, List<Borrow> borrowList) {
+        this.memberId = memberId;
+        Name = name;
+        Address = address;
+        Email = email;
+        Contact = contact;
+        D_O_B = d_O_B;
+        this.borrowList = borrowList;
     }
 
     public String getMemberId() {

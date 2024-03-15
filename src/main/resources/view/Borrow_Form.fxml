@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="moveNode" prefHeight="783.0" prefWidth="1169.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.BorrowFormController">
+    <children>
+        <Label layoutX="51.0" layoutY="27.0" text="Borrow &amp; Return">
+            <font>
+                <Font name="System Bold" size="34.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtBorrowId" layoutX="51.0" layoutY="141.0" prefHeight="35.0" prefWidth="185.0" promptText="ID" />
+        <TableView fx:id="tblBorrow" layoutX="126.0" layoutY="406.0" prefHeight="342.0" prefWidth="917.0" style="-fx-background-color: #f4ffff;">
+            <columns>
+                <TableColumn fx:id="colMemberId" prefWidth="164.0" text="Member ID" />
+            <TableColumn fx:id="colBookId" prefWidth="187.0" text="Book ID" />
+            <TableColumn fx:id="colStatus" prefWidth="206.0" text="Status" />
+            <TableColumn fx:id="colBorrowDate" prefWidth="193.0" text="Borrow Date" />
+            <TableColumn fx:id="colReturnDate" prefWidth="168.0" text="Return Date" />
+            </columns>
+        </TableView>
+        <JFXButton buttonType="RAISED" layoutX="296.0" layoutY="333.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #7aff63; -fx-background-radius: 15;" text="Add">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="515.0" layoutY="333.0" onAction="#btnBorrowOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Borrow">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="734.0" layoutY="333.0" onAction="#btnReturnOnAction" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #54a9ff; -fx-background-radius: 15;" text="Return">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="996.0" layoutY="36.0" onAction="#btnRefreshOnAction" style="-fx-background-color: #f0f1ff; -fx-background-radius: 20;" text="Refresh Fields" />
+      <JFXComboBox fx:id="cmbMemberId" layoutX="279.0" layoutY="238.0" onAction="#btnGetMemberNameOnAction" prefHeight="35.0" prefWidth="202.0" promptText="Member ID" />
+      <JFXComboBox fx:id="cmbBookId" layoutX="279.0" layoutY="141.0" onAction="#btnGetBookNameOnAction" prefHeight="35.0" prefWidth="202.0" promptText=" Book ID" />
+      <DatePicker fx:id="date" layoutX="865.0" layoutY="142.0" prefHeight="35.0" prefWidth="202.0" promptText="Date" />
+      <DatePicker fx:id="ReturnDate" layoutX="865.0" layoutY="245.0" prefHeight="35.0" prefWidth="202.0" promptText="Return Date" />
+      <JFXTextField fx:id="txtBookName" layoutX="547.0" layoutY="142.0" prefHeight="35.0" prefWidth="254.0" promptText="Book Name" />
+      <JFXTextField fx:id="txtMemberName" layoutX="547.0" layoutY="238.0" prefHeight="35.0" prefWidth="254.0" promptText="Member Name" />
+      <JFXComboBox fx:id="cmbStatus" layoutX="51.0" layoutY="238.0" prefHeight="35.0" prefWidth="185.0" promptText="Status" />
+    </children>
+</AnchorPane>

@@ -209,9 +209,7 @@ public class BookFormController implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
         }
-
     }
 
     @FXML
@@ -336,5 +334,6 @@ public class BookFormController implements Initializable {
         cmbAvailability.setValue(null);
         cmbGenre.setValue(null);
         cmbBranchId.setValue(null);
+        generateBookId();
     }
 }

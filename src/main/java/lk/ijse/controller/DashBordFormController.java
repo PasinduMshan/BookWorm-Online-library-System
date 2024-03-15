@@ -33,8 +33,10 @@ public class DashBordFormController {
     }
 
     @FXML
-    void btnBorrowReturnOnAction(ActionEvent event) {
-
+    void btnBorrowReturnOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/Borrow_Form.fxml"));
+        this.moveNode.getChildren().clear();
+        this.moveNode.getChildren().add(rootNode);
     }
 
     @FXML
