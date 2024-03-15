@@ -106,7 +106,7 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblBranchCount" layoutX="91.0" layoutY="58.0" textFill="#3056ff">
+                        <Label fx:id="lblBranchCount" layoutX="83.0" layoutY="58.0" textFill="#3056ff">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -145,7 +145,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <ImageView fitHeight="472.0" fitWidth="398.0" layoutX="32.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="472.0" fitWidth="398.0" layoutX="14.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Untitled%20design%20(9).png" />
                      </image>

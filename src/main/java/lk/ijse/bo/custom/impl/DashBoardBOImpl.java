@@ -2,10 +2,7 @@ package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.DashBoardBO;
 import lk.ijse.dao.DAOFactory;
-import lk.ijse.dao.custom.AdminDAO;
-import lk.ijse.dao.custom.BookDAO;
-import lk.ijse.dao.custom.MemberDAO;
-import lk.ijse.dao.custom.QueryDAO;
+import lk.ijse.dao.custom.*;
 import lk.ijse.dto.QueryDto;
 
 import java.sql.SQLException;
@@ -18,6 +15,7 @@ public class DashBoardBOImpl implements DashBoardBO {
     AdminDAO adminDAO = (AdminDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
     BookDAO bookDAO = (BookDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.BOOK);
     MemberDAO memberDAO = (MemberDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.MEMBER);
+    BranchDAO branchDAO = (BranchDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.BRANCH);
 
     @Override
     public ArrayList<QueryDto> loadAllLateReturn() throws SQLException {
@@ -55,5 +53,10 @@ public class DashBoardBOImpl implements DashBoardBO {
     @Override
     public String getMemberCount() throws SQLException {
         return memberDAO.getMemberCount();
+    }
+
+    @Override
+    public String getBranchCount() throws SQLException {
+        return branchDAO.getBranchCount();
     }
 }

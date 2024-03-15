@@ -145,6 +145,17 @@ public class DashBordFormController implements Initializable {
         setUserName();
         setBooKCount();
         setMemberCount();
+        setBranchCount();
+
+    }
+
+    private void setBranchCount() {
+        try {
+            String branchCount = dashBoardBO.getBranchCount();
+            lblBranchCount.setText(branchCount);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setMemberCount() {

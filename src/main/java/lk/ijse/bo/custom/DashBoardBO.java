@@ -15,4 +15,6 @@ public interface DashBoardBO extends SuperBO {
     String getBookCount() throws SQLException;
 
     String getMemberCount() throws SQLException;
+
+    String getBranchCount() throws SQLException;
 }
