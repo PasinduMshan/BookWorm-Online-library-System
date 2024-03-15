@@ -1,5 +1,8 @@
 package lk.ijse.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,14 +17,19 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.DashBoardBO;
 import lk.ijse.dto.QueryDto;
+import lk.ijse.lib.AdminConnection;
 import lk.ijse.tm.QueryReturnLateTm;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -133,6 +141,34 @@ public class DashBordFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
         loadAllLateReturns();
+        setDateAndTime();
+        setUserName();
+    }
+
+    private void setUserName() {
+        String userName = AdminConnection.getInstance().getUserName();
+        String password = AdminConnection.getInstance().getPassword();
+
+        String adminName = null;
+        try {
+            adminName = dashBoardBO.getAdminName(userName, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        lblUserName.setText(adminName);
+    }
+
+    private void updateTime() {
+        LocalTime now = LocalTime.now();
+        String formattedTime = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        lblTime.setText(formattedTime);
+    }
+
+    private void setDateAndTime() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> updateTime()));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+        lblDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void loadAllLateReturns() {
