@@ -92,9 +92,4 @@ public class LoginFormController {
         stage.setScene(scene);
     }
 
-    @FXML
-    void btnViewPasswordOnAction(MouseEvent event) {
-
-    }
-
 }
